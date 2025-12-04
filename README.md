@@ -29,7 +29,6 @@ For each channel realization, we form the **effective channel**
 
 ## 📁 Repository Structure
 
-text ```
 
 
 RIS-BeamSelection-XAI/
@@ -42,7 +41,7 @@ RIS-BeamSelection-XAI/
 │
 └── requirements.txt                    # Python dependencies
 
-```
+
 ---
 
 ## 🧠 Approach
