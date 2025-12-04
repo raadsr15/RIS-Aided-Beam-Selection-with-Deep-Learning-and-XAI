@@ -147,7 +147,7 @@ We integrate **SHAP KernelExplainer** to interpret the trained MLP.
 Output includes:
 
 - **Global SHAP Importance Plot**
-- (Optional) Per-sample explanations
+
 
 ---
 ## 📊 Results & Visualizations
