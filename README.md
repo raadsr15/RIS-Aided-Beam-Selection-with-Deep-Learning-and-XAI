@@ -165,7 +165,6 @@ This shows that a simple MLP can learn the mapping
 
 ### 2. Learning Dynamics
 
-![Training vs Validation Accuracy & Loss](images/training_curves.png)
 
 <img width="1189" height="490" alt="image" src="https://github.com/user-attachments/assets/581648e3-d97f-4727-a3cc-83a09ff4f58d" />
 
@@ -184,7 +183,6 @@ This shows that a simple MLP can learn the mapping
 
 ### 3. Explainable AI – SHAP Feature Importance
 
-![Global SHAP Summary](images/shap_summary.png)
 
 <img width="757" height="780" alt="image" src="https://github.com/user-attachments/assets/3366ccf5-557d-47d2-8e63-3b2c7f471530" />
 
