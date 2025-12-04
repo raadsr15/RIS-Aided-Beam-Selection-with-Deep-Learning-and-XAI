@@ -56,14 +56,13 @@ For each of `N_SAMPLES` realizations:
    - Rayleigh RIS → User channel `h_RU`
 2. Sample a random RIS phase pattern from a small **RIS phase codebook**
 3. Form the RIS-assisted component and the effective channel:
+<img width="267" height="61" alt="image" src="https://github.com/user-attachments/assets/f23b335a-d4a0-4cb9-8967-64e4cf90a91c" />
 
-$$
-h_{\text{eff}} = h_{\text{direct}} + h_{\text{RU}} \Theta H_{\text{BR}}
-$$
 4. Compute beamforming gains for all beams in the DFT codebook:
-   \[
-   g_k = |h_{\text{eff}} w_k|^2
-   \]
+
+<img width="159" height="51" alt="image" src="https://github.com/user-attachments/assets/6f825eec-c119-45b6-8ae8-5199200cf468" />
+
+   
 5. Label = `argmax_k g_k` (best beam index)
 6. Features = concatenation of real and imaginary parts of \(h_{\text{eff}}\):
    \[
@@ -100,9 +99,8 @@ A lightweight PyTorch **MLP classifier** is trained to map the effective channel
 ### **What the Model Learns**
 The neural network approximates the function:
 
-\[
-f: \mathbb{R}^{16} \rightarrow \{0, 1, \dots, 15\}
-\]
+<img width="283" height="71" alt="image" src="https://github.com/user-attachments/assets/771ea8ef-b09a-484f-960a-c77c46de5465" />
+
 
 assigning each channel realization to the **best beam** from the DFT codebook.
 
