@@ -67,7 +67,8 @@ For each of `N_SAMPLES` realizations:
 
    
 5. Label = `argmax_k g_k` (best beam index)
-6. Features = concatenation of real and imaginary parts of <img width="539" height="43" alt="image" src="https://github.com/user-attachments/assets/4726782a-e90d-414c-81c5-a4f62e8ad37f" />
+6. Features = concatenation of real and imaginary parts of
+<img width="539" height="43" alt="image" src="https://github.com/user-attachments/assets/4726782a-e90d-414c-81c5-a4f62e8ad37f" />
 
 
 The resulting dataset is:
