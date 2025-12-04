@@ -27,6 +27,21 @@ For each channel realization, we form the **effective channel**
 
 ---
 
+## 📁 Repository Structure
+
+
+RIS-BeamSelection-XAI/
+│
+├── beam_selection_ris.ipynb            # Single Jupyter Notebook (full pipeline)
+│
+├── beamforming_dataset_ris.xlsx        # Generated dataset (features + labels)
+│
+├── README.md                           # Project documentation
+│
+└── requirements.txt                    # Python dependencies
+
+---
+
 ## 🧠 Approach
 
 ### 1. Dataset Generation
