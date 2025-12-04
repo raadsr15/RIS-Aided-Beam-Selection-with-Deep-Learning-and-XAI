@@ -61,3 +61,85 @@ The dataset is also exported as:
 
 ```text
 data/beamforming_dataset_ris.xlsx
+
+
+
+
+---
+
+## 🔧 2. Deep Learning Model (Beam Predictor)
+
+A lightweight PyTorch **MLP classifier** is trained to map the effective channel  
+(real + imaginary components) to the optimal BS beam index.
+
+### **Model Architecture**
+- Input dimension: `2 * Nt = 16`
+- Two hidden layers (128 → 128 ReLU)
+- Output: `K = 16` beam logits
+- Loss: CrossEntropy
+- Optimizer: Adam (lr = 1e-3)
+
+### **What the Model Learns**
+The neural network approximates the function:
+
+\[
+f: \mathbb{R}^{16} \rightarrow \{0, 1, \dots, 15\}
+\]
+
+assigning each channel realization to the **best beam** from the DFT codebook.
+
+---
+
+## 📉 3. Training & Evaluation
+
+The dataset is divided into:
+
+- **70% Train**
+- **15% Validation**
+- **15% Test**
+
+During training, we collect and plot:
+
+- Training vs Validation Accuracy  
+- Training vs Validation Loss  
+
+The best-performing model (highest validation accuracy) is saved.
+
+### **Final Output**
+- `final_test_accuracy`
+- `final_test_loss`
+- Saved model weights: `models/best_model.pt`
+
+---
+
+## 🔍 4. Explainable AI (SHAP)
+
+We integrate **SHAP KernelExplainer** to interpret the trained MLP.
+
+### **Process**
+1. Summarize background dataset using K-Means  
+2. Compute SHAP values for 300 test samples  
+3. Average absolute SHAP values over all beams  
+4. Plot global feature importance
+
+### **Why XAI?**
+- Shows which BS antenna components matter most  
+- Highlights how RIS modifies channel importance  
+- Adds transparency and research depth to the ML model
+
+Output includes:
+
+- **Global SHAP Importance Plot**
+- (Optional) Per-sample explanations
+
+---
+
+
+## 🎯 Summary
+
+This project demonstrates:
+
+- Physics-based RIS-aided channel simulation  
+- AI-driven beam selection using deep learning  
+- XAI (SHAP) to interpret beam decision mechanisms  
+
