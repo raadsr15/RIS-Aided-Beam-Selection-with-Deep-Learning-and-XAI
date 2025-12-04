@@ -151,7 +151,65 @@ Output includes:
 - (Optional) Per-sample explanations
 
 ---
+## 📊 Results & Visualizations
 
+### 1. Classification Performance
+
+- **Task:** 16-class beam index prediction from RIS-aided effective channels  
+- **Final Test Loss:** `0.3197`  
+- **Final Test Accuracy:** `87.07%`
+
+This shows that a simple MLP can learn the mapping  
+**effective channel → optimal DFT beam** with high reliability in a 16-beam codebook.
+
+---
+
+### 2. Learning Dynamics
+
+![Training vs Validation Accuracy & Loss](images/training_curves.png)
+
+<img width="1189" height="490" alt="image" src="https://github.com/user-attachments/assets/581648e3-d97f-4727-a3cc-83a09ff4f58d" />
+
+
+**Key observations:**
+
+- **Stable convergence:**  
+  - Train accuracy rises from ~6% to **~91%**.  
+  - Val accuracy tracks closely, saturating around **86–88%**, with no sharp divergence.
+- **Smooth loss decay:**  
+  - Both train and validation loss decrease monotonically from ~2.77 to **≈0.32**.  
+  - The small gap between curves indicates **good generalization** and limited overfitting.
+- After ~150–200 epochs, improvements are marginal → training can be **early-stopped** here in future runs.
+
+---
+
+### 3. Explainable AI – SHAP Feature Importance
+
+![Global SHAP Summary](images/shap_summary.png)
+
+<img width="757" height="780" alt="image" src="https://github.com/user-attachments/assets/3366ccf5-557d-47d2-8e63-3b2c7f471530" />
+
+
+**What the SHAP plot shows:**
+
+- The most influential features are mainly the **real parts** of certain antennas  
+  (e.g. `h6_real`, `h8_real`, `h2_real`, `h1_real`), followed by some **imag components**
+  (`h1_imag`, `h7_imag`, `h8_imag`, etc.).
+- Both **real and imaginary** components contribute, confirming that the model is using
+  full complex-channel information rather than over-fitting to a single dimension.
+- Different antennas have different impact, which is consistent with a spatially
+  selective channel where certain directions/paths (and thus beams) dominate.
+
+**Interpretation:**
+
+The XAI analysis confirms that:
+
+- The network learns **physically meaningful patterns** in the RIS-modified channel.  
+- Beam selection decisions are driven by a subset of spatial components with
+  strongest power/phase structure, not by random noise.  
+- This adds **trustworthiness** and **research value** to the model, beyond raw accuracy.
+
+---
 
 ## 🎯 Summary
 
