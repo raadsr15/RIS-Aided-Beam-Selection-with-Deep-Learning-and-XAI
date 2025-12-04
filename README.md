@@ -55,10 +55,11 @@ For each of `N_SAMPLES` realizations:
    - Rayleigh BS → RIS channel matrix `H_BR`
    - Rayleigh RIS → User channel `h_RU`
 2. Sample a random RIS phase pattern from a small **RIS phase codebook**
-3. Form the **RIS-assisted component** and the effective channel:
-   \[
-   h_{\text{eff}} = h_{\text{direct}} + h_{\text{RU}} \Theta H_{\text{BR}}
-   \]
+3. Form the RIS-assisted component and the effective channel:
+
+$$
+h_{\text{eff}} = h_{\text{direct}} + h_{\text{RU}} \Theta H_{\text{BR}}
+$$
 4. Compute beamforming gains for all beams in the DFT codebook:
    \[
    g_k = |h_{\text{eff}} w_k|^2
