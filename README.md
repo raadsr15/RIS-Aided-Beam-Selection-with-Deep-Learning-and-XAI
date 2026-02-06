@@ -1,7 +1,7 @@
 <img width="1344" height="768" alt="final_use" src="https://github.com/user-attachments/assets/f6054451-f4b7-41e6-9780-0efb6081884d" />
 
 
-# RIS-Aided Beam Selection with Deep Learning and XAI
+# Reconfigurable Intelligent Surface(RIS)-Aided Beam Selection with Deep Learning and XAI
 
 This repository implements a **6G-style RIS-aided beam selection system** with:
 
